@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab3
+namespace LabAssignment2
 {
     public class UserProfile
     {
@@ -175,58 +175,82 @@ namespace Lab3
         }
     }
 
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Experiment 1:");
-            UserProfile u1 = new UserProfile { Username = "yash", Password = "123456", Email = "yash@abc.com" };
-            u1.Display();
-            UserProfile u2 = new UserProfile { Username = "rahul", Password = "abcdef", Email = "rahul@xyz.com" };
-            u2.Display();
+            Console.WriteLine("Choose Experiment (1-7): ");
+            int choice = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\nExperiment 2:");
-            Truck t = new Truck { Make = "Tata", Model = "X1", Year = 2020 };
-            t.DisplayDetails();
-            Bus b = new Bus { Make = "Volvo", Model = "B7R", Year = 2021 };
-            b.DisplayDetails();
+            switch (choice)
+            {
+                case 1:
+                    UserProfile u1 = new UserProfile();
+                    u1.Username = "yash";
+                    u1.Password = "12345";
+                    u1.Password = "123456";
+                    u1.Email = "yash@abc.com";
+                    u1.Display();
 
-            Console.WriteLine("\nExperiment 3:");
-            Calculator calc = new Calculator();
-            Console.WriteLine(calc.Add(2, 3));
-            Console.WriteLine(calc.Add(2.5f, 3.5f));
-            Console.WriteLine(calc.Add(1.1, 2.2, 3.3));
+                    UserProfile u2 = new UserProfile { Username = "rahul", Password = "abcdef", Email = "rahul@xyz.com" };
+                    u2.Display();
+                    break;
 
-            Console.WriteLine("\nExperiment 4:");
-            FullTimeEmployee fte = new FullTimeEmployee { Name = "Amit", MonthlySalary = 50000 };
-            PartTimeEmployee pte = new PartTimeEmployee { Name = "Ravi", HoursWorked = 40, HourlyRate = 200 };
-            Console.WriteLine($"{fte.Name} Salary: {fte.CalculateSalary()}");
-            Console.WriteLine($"{pte.Name} Salary: {pte.CalculateSalary()}");
+                case 2:
+                    Truck t = new Truck { Make = "Tata", Model = "X1", Year = 2020 };
+                    t.DisplayDetails();
+                    Bus b = new Bus { Make = "Volvo", Model = "B7R", Year = 2021 };
+                    b.DisplayDetails();
+                    break;
 
-            Console.WriteLine("\nExperiment 5:");
-            Student s1 = new Student();
-            Student s2 = new Student("Raj", 101);
-            Student s3 = new Student("Simran", 102, 90);
-            s1.Display();
-            s2.Display();
-            s3.Display();
+                case 3:
+                    Calculator calc = new Calculator();
+                    Console.WriteLine(calc.Add(2, 3));
+                    Console.WriteLine(calc.Add(2.5f, 3.5f));
+                    Console.WriteLine(calc.Add(1.1, 2.2, 3.3));
+                    break;
 
-            Console.WriteLine("\nExperiment 6:");
-            Product p1 = new Product { ProductID = 1, ProductName = "Laptop", Price = 50000, Quantity = 5 };
-            p1.PrintDetails();
-            Product p2 = new Product { ProductID = 2, ProductName = "Mouse", Price = -200, Quantity = 10 };
-            p2.PrintDetails();
+                case 4:
+                    FullTimeEmployee fte = new FullTimeEmployee { Name = "Amit", MonthlySalary = 50000 };
+                    PartTimeEmployee pte = new PartTimeEmployee { Name = "Ravi", HoursWorked = 40, HourlyRate = 200 };
+                    Console.WriteLine($"{fte.Name} Salary: {fte.CalculateSalary()}");
+                    Console.WriteLine($"{pte.Name} Salary: {pte.CalculateSalary()}");
+                    break;
 
-            Console.WriteLine("\nExperiment 7:");
-            Library lib = new Library();
-            Book book1 = new Book { Title = "C# Basics" };
-            Book book2 = new Book { Title = "OOP Concepts" };
-            lib.Books.Add(book1);
-            lib.Books.Add(book2);
-            Member m1 = new Member { Name = "Karan" };
-            lib.RegisterMember(m1);
-            lib.LendBook(book1, m1);
-            lib.LendBook(book1, m1);
+                case 5:
+                    Student s1 = new Student();
+                    Student s2 = new Student("Raj", 101);
+                    Student s3 = new Student("Simran", 102, 90);
+                    s1.Display();
+                    s2.Display();
+                    s3.Display();
+                    break;
+
+                case 6:
+                    Product p1 = new Product { ProductID = 1, ProductName = "Laptop", Price = 50000, Quantity = 5 };
+                    p1.PrintDetails();
+                    Product p2 = new Product { ProductID = 2, ProductName = "Mouse", Price = -200, Quantity = 10 };
+                    p2.PrintDetails();
+                    break;
+
+                case 7:
+                    Library lib = new Library();
+                    Book book1 = new Book { Title = "C# Basics" };
+                    Book book2 = new Book { Title = "OOP Concepts" };
+                    lib.Books.Add(book1);
+                    lib.Books.Add(book2);
+
+                    Member m1 = new Member { Name = "Karan" };
+                    lib.RegisterMember(m1);
+
+                    lib.LendBook(book1, m1);
+                    lib.LendBook(book1, m1);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid Choice");
+                    break;
+            }
         }
     }
 }
